@@ -10,7 +10,7 @@ public class Point2d extends AbstractPoint {
      * @param y Y coordinate
      */
     public Point2d(Double x, Double y) {
-        super(new double[] {0.0, 0.0});
+        super(new double[] {x, y});
     }
 
     /** TODO
@@ -18,7 +18,7 @@ public class Point2d extends AbstractPoint {
      * @param vector Vector containing X and Y coordinates
      */
     public Point2d(Double[] vector) {
-        this(0.0, 0.0);
+        this(vector[0], vector[1]);
     }
 
     /**
@@ -38,7 +38,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-        return null;
+        vector[X] = vector[X] + translateVector[X];
+        vector[Y] = vector[Y] + translateVector[Y];
+        return this;
     }
 
     /** TODO
@@ -47,7 +49,9 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     public Point2d translate(Point2d translateVector) {
-        return null;
+        vector[X] = vector[X] + translateVector.X();
+        vector[Y] = vector[Y] + translateVector.Y();
+        return this;
     }
 
     /** TODO
@@ -57,7 +61,11 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        return null;
+        double newX = rotationMatrix[X][X] * vector[X] + rotationMatrix[X][Y] * vector[Y];
+        double newY = rotationMatrix[Y][X] * vector[X] + rotationMatrix[Y][Y] * vector[Y];
+        vector[X] = newX;
+        vector[Y] = newY;
+        return this;
     }
 
     /** TODO
@@ -66,7 +74,11 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        return null;
+        double newX = Math.cos(angle) * vector[X] - Math.sin(angle) * vector[Y];
+        double newY = Math.sin(angle) * vector[X] + Math.cos(angle) * vector[Y];
+        vector[X] = newX;
+        vector[Y] = newY;
+        return this;
     }
 
     /** TODO
@@ -76,7 +88,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        return null;
+        vector[X] = vector[X] / divider;
+        vector[Y] = vector[Y] / divider;
+        return this;
     }
 
     /** TODO
@@ -86,7 +100,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d multiply(Double multiplier) {
-        return null;
+        vector[X] = vector[X] * multiplier;
+        vector[Y] = vector[Y] * multiplier;
+        return this;
     }
 
     /** TODO
@@ -96,7 +112,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d add(Double adder) {
-        return null;
+        vector[X] = vector[X] + adder;
+        vector[Y] = vector[Y] + adder;
+        return this;
     }
 
     /** TODO
@@ -104,6 +122,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d clone() {
-        return null;
+        return new Point2d(vector[X], vector[Y]);
     }
 }
