@@ -1,5 +1,7 @@
 package Point;
 
+import java.util.*;
+
 public final class PointOperator {
 
     /** TODO
@@ -9,8 +11,8 @@ public final class PointOperator {
      * @param translateVector Translation to apply
      */
     public static void translate(Double[] vector, Double[] translateVector) {
-        for(int i = 0; i < vector.length; i ++) {
-            vector[i] += translateVector[i];
+        for(int i = 0; i < vector.length; i++) {
+            vector[i] = vector[i]+translateVector[i];
         }
     }
 
@@ -21,15 +23,14 @@ public final class PointOperator {
      * @param rotationMatrix Matrix by which to rotate
      */
     public static void rotate(Double[] vector, Double[][] rotationMatrix) {
-        Double[] vectorTmp = new Double[vector.length];
-        for(int i = 0; i < rotationMatrix.length; i++) {
-            double tmp = 0;
-            for(int j = 0; j < rotationMatrix[i].length; j++) {
-                tmp += vector[j] * rotationMatrix[i][j];
+        double sum = 0;
+        for(int i = 0; i < vector.length; i++) {
+            for(int j = 0; j < vector.length; j++) {
+                sum += vector[j] * rotationMatrix[i][j];
             }
-            vectorTmp[i] = tmp;
+            vector[i] = sum;
+            sum = 0;
         }
-        System.arraycopy(vectorTmp, 0, vector, 0, vector.length);
     }
 
     /** TODO
@@ -39,7 +40,7 @@ public final class PointOperator {
      */
     public static void divide(Double[] vector, Double divider) {
         for(int i = 0; i < vector.length; i++) {
-            vector[i] /= divider;
+            vector[i] = vector[i]/divider;
         }
     }
 
@@ -50,7 +51,7 @@ public final class PointOperator {
      */
     public static void multiply(Double[] vector, Double multiplier) {
         for(int i = 0; i < vector.length; i++) {
-            vector[i] *= multiplier;
+            vector[i] = vector[i]*multiplier;
         }
     }
 
@@ -61,7 +62,7 @@ public final class PointOperator {
      */
     public static void add(Double[] vector, Double adder) {
         for(int i = 0; i < vector.length; i++) {
-            vector[i] += adder;
+            vector[i] = vector[i]+adder;
         }
     }
 }
