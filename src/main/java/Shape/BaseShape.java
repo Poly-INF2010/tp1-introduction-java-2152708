@@ -26,7 +26,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @param coords The collection of 2D points
      */
     public BaseShape(Collection<Point2d> coords) {
-        this.coords = coords;
+        this.coords = cloneCoords(coords);
     }
 
     /** TODO
@@ -115,9 +115,7 @@ public class BaseShape extends Transform implements Cloneable {
      */
     public Collection<Point2d> getCoords() {
         Collection<Point2d> copiedCoords = new ArrayList<>();
-        for(Point2d point : coords){
-            copiedCoords.add(point);
-        }
+        copiedCoords.addAll(coords);
         return copiedCoords;
     }
 
@@ -128,7 +126,8 @@ public class BaseShape extends Transform implements Cloneable {
     public Collection<Point2d> cloneCoords() {
         Collection<Point2d> clonedCoords = new ArrayList<Point2d>();
         for(Point2d point : coords){
-            clonedCoords.add(point.clone());
+            Point2d newPoint = new Point2d(point.X(), point.Y());
+            clonedCoords.add(newPoint);
         }
         return clonedCoords;
     }
@@ -203,6 +202,6 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Deep copy of the current shape
      */
     public BaseShape clone() {
-        return new BaseShape(cloneCoords());
+        return new BaseShape(this.cloneCoords());
     }
 }
