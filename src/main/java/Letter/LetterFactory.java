@@ -3,8 +3,6 @@ package Letter;
 import Point.Point2d;
 import Shape.*;
 
-import java.util.Collection;
-
 public final class LetterFactory {
     final static Double maxHeight = 150.0;
     final static Double maxWidth = maxHeight / 2.5;
