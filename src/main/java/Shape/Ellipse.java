@@ -17,14 +17,14 @@ public class Ellipse extends BaseShape {
      * @param widthDiameter Width of the Ellipse
      * @param heightDiameter Height of the Ellipse
      */
-    public Ellipse(Double widthDiameter, Double heightDiameter) {
-        Double leftCoord_X = -widthDiameter/2;
-        Double rightCoord_X = widthDiameter/2;
-        Double bottomCoord_Y = -heightDiameter/2;
-        Double topCoord_Y = heightDiameter/2;
+    public Ellipse(double widthDiameter, double heightDiameter) {
+        double leftCoord_X = -widthDiameter/2;
+        double rightCoord_X = widthDiameter/2;
+        double bottomCoord_Y = -heightDiameter/2;
+        double topCoord_Y = heightDiameter/2;
 
-        for(Double x = leftCoord_X ; x < rightCoord_X ; x += 0.5){
-            for(Double y = bottomCoord_Y ; y < topCoord_Y ; y += 0.5){
+        for(double x = leftCoord_X ; x < rightCoord_X ; x += 0.5){
+            for(double y = bottomCoord_Y ; y < topCoord_Y ; y += 0.5){
                 if(pointIsInEllipse(x,y,widthDiameter,heightDiameter)){
                     add(new Point2d(x,y));
                 }
@@ -57,8 +57,8 @@ public class Ellipse extends BaseShape {
         }
         if(getMaxCoord() != closestMissingCoordinate){
             closestMissingCoordinate.add(-0.5);
-            Double widthDiameter = 0.5;
-            Double heightDiameter = 0.5;
+            double widthDiameter = 0.5;
+            double heightDiameter = 0.5;
             Ellipse growingEllipse = new Ellipse(widthDiameter, heightDiameter);
             while(!growingEllipse.getCoords().contains((closestMissingCoordinate))){
                 growingEllipse = new Ellipse(widthDiameter, heightDiameter);

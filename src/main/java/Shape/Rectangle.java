@@ -11,12 +11,12 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-        Double initialX = -width/2;
-        Double initialY = -height/2;
-        Double finalX = width/2;
-        Double finalY = height/2;
+        double initialX = -width/2;
+        double initialY = -height/2;
+        double finalX = width/2;
+        double finalY = height/2;
         for(Double i = initialX ; i < finalX ; i += 0.5){
-            for(Double j = initialY ; j < finalY ; j += 0.5){
+            for(double j = initialY; j < finalY ; j += 0.5){
                 add(new Point2d(i,j));
             }
 
@@ -28,12 +28,12 @@ public class Rectangle extends BaseShape {
      * @param dimensions 2D point containing the width and height of the rectangle
      */
     public Rectangle(Point2d dimensions) {
-        Double initialX = -dimensions.X()/2;
-        Double initialY = -dimensions.Y()/2;
-        Double finalX = dimensions.X()/2;
-        Double finalY = dimensions.Y()/2;
+        double initialX = -dimensions.X()/2;
+        double initialY = -dimensions.Y()/2;
+        double finalX = dimensions.X()/2;
+        double finalY = dimensions.Y()/2;
         for(Double i = initialX ; i < finalX ; i += 0.5){
-            for(Double j = initialY ; j < finalY ; j += 0.5){
+            for(double j = initialY; j < finalY ; j += 0.5){
                 add(new Point2d(i,j));
             }
 

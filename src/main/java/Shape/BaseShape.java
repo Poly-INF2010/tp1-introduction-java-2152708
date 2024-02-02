@@ -114,9 +114,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Shallow copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> getCoords() {
-        Collection<Point2d> copiedCoords = new ArrayList<>();
-        copiedCoords.addAll(coords);
-        return copiedCoords;
+        return new ArrayList<>(coords);
     }
 
     /** TODO
@@ -136,7 +134,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        Double maxValue = -Double.MAX_VALUE;
+        double maxValue = -Double.MAX_VALUE;
         for(Point2d point : coords){
             if(point.X() > maxValue){
                 maxValue = point.X();
@@ -149,7 +147,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum Y coordinate of the shape
      */
     public Double getMaxY() {
-        Double maxValue = -Double.MAX_VALUE;
+        double maxValue = -Double.MAX_VALUE;
         for(Point2d point : coords){
             if(point.Y() > maxValue){
                 maxValue = point.Y();
@@ -169,7 +167,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum X coordinate of the shape
      */
     public Double getMinX() {
-        Double minValue = Double.MAX_VALUE;
+        double minValue = Double.MAX_VALUE;
         for(Point2d point : coords){
             if(point.X() < minValue){
                 minValue = point.X();
@@ -182,7 +180,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum Y coordinate of the shape
      */
     public Double getMinY() {
-        Double minValue = Double.MAX_VALUE;
+        double minValue = Double.MAX_VALUE;
         for(Point2d point : coords){
             if(point.Y() < minValue){
                 minValue = point.Y();
