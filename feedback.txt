@@ -1,0 +1,7 @@
+Points	3/5
+Formes	5/5
+Lettres	5/5
+Qualité de code et Design	5/5
+Total	18/20
+
+Methodes statiques de PointOperator ne sont pas appelées dans Point2D.java. Pénalité -2
